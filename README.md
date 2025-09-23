@@ -27,9 +27,10 @@ Visit the live demo: [Warrior Nerds Quiz](https://warrior-nerds-quiz.vercel.app)
 
 ```
 warrior-nerds-quiz/
-├── index.html          # Main HTML file
-├── styles.css          # All styling and animations
-├── script.js           # Quiz logic and story generation
+├── public/
+│   ├── index.html      # Main HTML file (served by Vercel)
+│   ├── styles.css      # All styling and animations
+│   └── script.js       # Quiz logic and story generation
 ├── vercel.json         # Vercel deployment configuration
 ├── package.json        # Project metadata
 ├── .gitignore          # Git ignore rules
