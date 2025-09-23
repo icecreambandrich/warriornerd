@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="An epic interactive quiz combining warrior themes with nerd culture. Embark on the Quest for Eternal Geekdom!">
+    <meta name="keywords" content="quiz, interactive, warrior, nerd, geek, gaming, programming, javascript">
+    <meta name="author" content="Warrior Nerd Developer">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://warrior-nerds-quiz.vercel.app/">
+    <meta property="og:title" content="Warrior Nerds: The Quest for Eternal Geekdom">
+    <meta property="og:description" content="An epic interactive quiz combining warrior themes with nerd culture. Discover your warrior-nerd destiny!">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://warrior-nerds-quiz.vercel.app/">
+    <meta property="twitter:title" content="Warrior Nerds: The Quest for Eternal Geekdom">
+    <meta property="twitter:description" content="An epic interactive quiz combining warrior themes with nerd culture. Discover your warrior-nerd destiny!">
+    
+    <title>Warrior Nerds: The Quest for Eternal Geekdom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="quiz-header">
+            <h1 class="title">⚔️ WARRIOR NERDS ⚔️</h1>
+            <h2 class="subtitle">The Quest for Eternal Geekdom</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="question-counter" id="questionCounter">Question 1 of 10</div>
+        </header>
+
+        <main class="quiz-content">
+            <div class="story-section" id="storySection">
+                <h3>🏰 Your Epic Tale Begins... 🏰</h3>
+                <p id="storyText">In the mystical realm of Geektopia, where WiFi signals flow like ancient magic and code compiles like sacred incantations, a new warrior-nerd is about to embark on the most epic quest ever attempted. The Council of Eternal Geekdom has summoned you to prove your worthiness...</p>
+            </div>
+
+            <div class="question-section" id="questionSection">
+                <h3 class="question-text" id="questionText">What's your name?</h3>
+                <div class="options-container" id="optionsContainer">
+                    <!-- Options will be dynamically generated -->
+                </div>
+                <button class="next-button" id="nextButton" style="display: none;">Continue Your Quest →</button>
+            </div>
+
+            <div class="final-legacy" id="finalLegacy" style="display: none;">
+                <h2>🏆 YOUR ETERNAL LEGACY 🏆</h2>
+                <div class="legacy-content" id="legacyContent">
+                    <!-- Final story will be generated here -->
+                </div>
+                <button class="restart-button" id="restartButton">Begin a New Quest</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

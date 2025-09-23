@@ -1,0 +1,33 @@
+{
+  "name": "warrior-nerds-quiz",
+  "version": "1.0.0",
+  "description": "An epic interactive quiz: Warrior Nerds - The Quest for Eternal Geekdom",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "start": "python3 -m http.server 8000",
+    "build": "echo 'No build step required for static site'"
+  },
+  "keywords": [
+    "quiz",
+    "interactive",
+    "warrior",
+    "nerd",
+    "geek",
+    "gaming",
+    "programming",
+    "javascript",
+    "html",
+    "css"
+  ],
+  "author": "Warrior Nerd Developer",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/warrior-nerds-quiz.git"
+  },
+  "homepage": "https://warrior-nerds-quiz.vercel.app",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
