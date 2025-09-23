@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Orbitron', monospace;
+    font-family: 'Open Sans', sans-serif;
     background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 50%, #2d1b69 100%);
     color: #00ff41;
     min-height: 100vh;
@@ -58,6 +58,10 @@ body::before {
 @keyframes glow {
     from { text-shadow: 0 0 10px #ff6b35, 0 0 20px #ff6b35, 0 0 30px #ff6b35; }
     to { text-shadow: 0 0 20px #ff6b35, 0 0 30px #ff6b35, 0 0 40px #ff6b35; }
+}
+
+.subtitle, .question-text, .story-section h3, .final-legacy h2, .legacy-content h4, .option-button, .next-button, .restart-button, #nameInput {
+    font-family: 'Exo 2', sans-serif;
 }
 
 .subtitle {
@@ -134,6 +138,33 @@ body::before {
     margin-bottom: 20px;
     text-align: center;
     font-weight: 700;
+}
+
+.name-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#nameInput {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #00ff41;
+    color: #e0e0e0;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    text-align: center;
+    width: 80%;
+    transition: all 0.3s ease;
+}
+
+#nameInput:focus {
+    outline: none;
+    border-color: #ff6b35;
+    box-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
 }
 
 .options-container {

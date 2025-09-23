@@ -7,19 +7,9 @@ class WarriorNerdQuiz {
         
         this.questions = [
             {
-                question: "What's your name?",
-                options: [
-                    "Harry",
-                    "Harry of the Tribe of 404 Errors",
-                    "Sir Harry the Debugger",
-                    "Harry.exe (Not Responding)"
-                ],
-                storyResponses: [
-                    "A simple name for a not-so-simple quest! Harry stepped forward, unaware that destiny was about to ctrl+alt+delete his boring life forever.",
-                    "The ancient scrolls spoke of this warrior! Harry of the Tribe of 404 Errors emerged from the digital shadows, their reputation for finding what others couldn't even search for preceding them like a legendary ping.",
-                    "Behold! Sir Harry the Debugger, knight of the sacred IDE, wielder of the mighty breakpoint, and sworn enemy of infinite loops everywhere! The very mention of their name makes syntax errors tremble.",
-                    "A warrior of mysterious origins! Harry.exe (Not Responding) materialized in a shower of blue screen fragments, their very existence a paradox that somehow still managed to boot up and accept user input."
-                ]
+                question: "What is your legendary name, warrior?",
+                type: 'text',
+                storyResponse: "The chronicles shall forever remember the name {name}! A warrior destined for greatness, or at least, a really high score."
             },
             {
                 question: "Which sacred weapon do you wield in battle?",
@@ -155,6 +145,21 @@ class WarriorNerdQuiz {
                     "In a moment of pure genius, {name} solved the P vs NP problem using nothing but a perfectly crafted meme! The mathematical community was initially skeptical until they realized the meme was actually a valid proof disguised as humor.",
                     "The greatest achievement of all: {name} convinced everyone to actually read the documentation! This legendary feat ended 90% of all support tickets and ushered in a golden age of informed users and fewer 'RTFM' responses."
                 ]
+            },
+            {
+                question: "Your quest is over. What is your final, triumphant action?",
+                options: [
+                    "Deploy to production on a Friday afternoon",
+                    "Announce 'It works on my machine' and ascend to a higher plane",
+                    "Write a 10,000-word blog post about the 'journey'",
+                    "Immediately start a New Game+"
+                ],
+                storyResponses: [
+                    "With nerves of steel, {name} deployed to production on a Friday at 4:59 PM. The servers didn't crash. The internet didn't break. It was a display of power so absolute, it was terrifying.",
+                    "Having solved all of geekdom's problems, {name} simply declared, 'It works on my machine,' and vanished into the cloud, becoming a legend whispered about in pull requests for eternity.",
+                    "The quest was complete, but the content creation had just begun. {name} wrote a 10,000-word, multi-part blog series on Medium about their 'journey,' complete with affiliate links to their favorite mechanical keyboard.",
+                    "The moment the credits rolled, {name} hit the 'New Game+' button. The universe reset, but this time with more challenging bugs and even more ridiculous loot. The quest for eternal geekdom never truly ends."
+                ]
             }
         ];
         
@@ -169,35 +174,48 @@ class WarriorNerdQuiz {
     setupEventListeners() {
         document.getElementById('nextButton').addEventListener('click', () => this.nextQuestion());
         document.getElementById('restartButton').addEventListener('click', () => this.restartQuiz());
+        document.getElementById('nameSubmitButton').addEventListener('click', () => this.submitName());
+        document.getElementById('nameInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                this.submitName();
+            }
+        });
     }
     
     displayQuestion() {
         const question = this.questions[this.currentQuestion];
         const questionText = document.getElementById('questionText');
         const optionsContainer = document.getElementById('optionsContainer');
+        const nameInputContainer = document.getElementById('nameInputContainer');
         const questionCounter = document.getElementById('questionCounter');
         const progressFill = document.getElementById('progressFill');
-        
+
         // Update progress
-        const progress = ((this.currentQuestion + 1) / this.questions.length) * 100;
-        progressFill.style.width = `${progress}%`;
-        questionCounter.textContent = `Question ${this.currentQuestion + 1} of ${this.questions.length}`;
-        
+        const progress = (this.currentQuestion / (this.questions.length -1)) * 100;
+        progressFill.style.width = `${this.currentQuestion === 0 ? 0 : progress}%`;
+        questionCounter.textContent = `Question ${this.currentQuestion} of ${this.questions.length - 1}`;
+
         // Display question
         questionText.textContent = question.question;
-        
-        // Clear and populate options
-        optionsContainer.innerHTML = '';
-        question.options.forEach((option, index) => {
-            const button = document.createElement('button');
-            button.className = 'option-button';
-            button.textContent = option;
-            button.addEventListener('click', () => this.selectOption(index, button));
-            optionsContainer.appendChild(button);
-        });
-        
-        // Hide next button
-        document.getElementById('nextButton').style.display = 'none';
+
+        if (question.type === 'text') {
+            nameInputContainer.style.display = 'flex';
+            optionsContainer.style.display = 'none';
+            document.getElementById('nextButton').style.display = 'none';
+            document.getElementById('nameInput').focus();
+        } else {
+            nameInputContainer.style.display = 'none';
+            optionsContainer.style.display = 'grid';
+            optionsContainer.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'option-button';
+                button.textContent = option;
+                button.addEventListener('click', () => this.selectOption(index, button));
+                optionsContainer.appendChild(button);
+            });
+            document.getElementById('nextButton').style.display = 'none';
+        }
     }
     
     selectOption(optionIndex, buttonElement) {
@@ -228,14 +246,22 @@ class WarriorNerdQuiz {
         document.getElementById('nextButton').style.display = 'block';
     }
     
-    extractName(nameOption) {
-        // Extract the base name "Harry" from various options
-        if (nameOption.includes('Harry')) {
-            return 'Harry';
-        }
-        return nameOption.split(' ')[0]; // Fallback to first word
-    }
     
+    submitName() {
+        const nameInput = document.getElementById('nameInput');
+        const name = nameInput.value.trim();
+        if (name) {
+            this.playerName = name;
+            const storyResponse = this.questions[0].storyResponse.replace(/{name}/g, this.playerName);
+            this.story.push(storyResponse);
+            this.answers[0] = { questionIndex: 0, optionText: name };
+            this.updateStoryDisplay();
+            this.nextQuestion();
+        } else {
+            alert('A warrior must have a name!');
+        }
+    }
+
     updateStory() {
         const currentAnswer = this.answers[this.currentQuestion];
         const storyResponse = this.questions[this.currentQuestion].storyResponses[currentAnswer.optionIndex];
@@ -246,6 +272,10 @@ class WarriorNerdQuiz {
         // Add to story array
         this.story.push(personalizedStory);
         
+        this.updateStoryDisplay();
+    }
+
+    updateStoryDisplay() {
         // Update story display
         const storyText = document.getElementById('storyText');
         const fullStory = this.story.join('\n\n');
@@ -291,6 +321,7 @@ class WarriorNerdQuiz {
         const artifact = this.answers[7]?.optionText || "legendary artifact";
         const combat = this.answers[8]?.optionText || "unique combat style";
         const legacy = this.answers[9]?.optionText || "eternal legacy";
+        const finalAction = this.answers[10]?.optionText || "final, triumphant action";
         
         return `
             <h4>🏰 The Epic Saga of ${this.playerName} 🏰</h4>
@@ -303,6 +334,8 @@ class WarriorNerdQuiz {
             <p>Though they feared ${fear}, our hero pressed on, driven by their quest to find ${artifact}. Their unique approach to combat - ${combat} - revolutionized warfare in the digital age and inspired countless memes.</p>
             
             <p>But perhaps most importantly, ${this.playerName} will forever be remembered as ${legacy}. This achievement transcended the boundaries between the physical and digital worlds, creating a legacy that would inspire warrior-nerds for generations to come.</p>
+
+            <p>In their final, triumphant moment, our hero chose to ${finalAction}. It was a fitting end to a saga so epic, it probably caused a buffer overflow in the scroll of destiny.</p>
             
             <h4>⚡ The Final Chapter ⚡</h4>
             <p>As the sun set over Silicon Valley, ${this.playerName} stood atop the highest server rack, their ${weapon} gleaming in the light of a thousand LED status indicators. They had achieved what many thought impossible - they had become the ultimate Warrior Nerd.</p>
