@@ -21,7 +21,7 @@ class FounderQuiz {
                     { text: "97 slides of graphs, no product", type: 'hacker', story: "{name}'s pitch deck was a masterpiece of data visualization. 97 slides later, the investors had no idea what the product was, but they were deeply impressed by a pie chart." },
                     { text: "“We’re basically the Uber of AI” (and hope they buy it)", type: 'hype', story: "Boldly, {name} declared the company 'the Uber of AI.' The investors nodded sagely, having heard the same pitch six times that day. They were in." },
                     { text: "A live demo that immediately crashes", type: 'chaos', story: "The live demo was going great until it wasn't. As the app crashed spectacularly, {name} called it an 'interactive demonstration of our robust error-handling protocols.'" },
-                    { text: "Just Elon quotes and 🚀 emojis", type: 'cliche', story: "{name}'s pitch was simple: a single slide with a picture of Elon Musk and three rocket emojis. They secured $10 million." }
+                    { text: "Just Elon quotes and rocket emojis", type: 'cliche', story: "{name}'s pitch was simple: a single slide with a picture of Elon Musk and three rocket emojis. They secured $10 million." }
                 ]
             },
             {
@@ -105,7 +105,7 @@ class FounderQuiz {
         this.currentQuestion = -1;
         this.setupEventListeners();
         document.getElementById('storySection').style.display = 'block';
-        document.getElementById('questionSection').style.display = 'none';
+        // The line hiding questionSection is now removed.
         document.getElementById('finalLegacy').style.display = 'none';
         document.getElementById('nameInputContainer').style.display = 'block';
         document.getElementById('nameInput').focus();
@@ -138,7 +138,7 @@ class FounderQuiz {
             optionsContainer.appendChild(button);
         });
 
-        document.getElementById('nextButton').style.display = 'none';
+        document.getElementById('nextButton').disabled = true;
 
         const progress = ((this.currentQuestion + 1) / this.questions.length) * 100;
         document.getElementById('progressFill').style.width = `${progress}%`;
@@ -155,7 +155,7 @@ class FounderQuiz {
         const answer = question.options[optionIndex];
         this.answers[this.currentQuestion] = answer;
 
-        document.getElementById('nextButton').style.display = 'block';
+        document.getElementById('nextButton').disabled = false;
     }
     
     
