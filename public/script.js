@@ -105,7 +105,7 @@ class FounderQuiz {
         this.currentQuestion = -1;
         this.setupEventListeners();
         document.getElementById('storySection').style.display = 'block';
-        // The line hiding questionSection is now removed.
+        document.getElementById('questionSection').style.display = 'none';
         document.getElementById('finalLegacy').style.display = 'none';
         document.getElementById('nameInputContainer').style.display = 'block';
         document.getElementById('nameInput').focus();
@@ -167,6 +167,7 @@ class FounderQuiz {
             this.story.push(`Welcome, founder ${name}. You're about to embark on the chaotic journey of building a startup. Each choice you make will shape your company's fate. Will you IPO, get acquired, or flame out and start a podcast? Let's find out.`);
             this.updateStoryDisplay();
             this.currentQuestion = 0;
+            document.querySelector('.context-box').style.display = 'none';
             document.getElementById('nameInputContainer').style.display = 'none';
             document.getElementById('questionSection').style.display = 'block';
             this.displayQuestion();
@@ -265,19 +266,16 @@ class FounderQuiz {
         this.answers = [];
         this.playerName = '';
         this.story = [];
-
         document.getElementById('storyText').innerHTML = '';
+        document.querySelector('.context-box').style.display = 'block';
         document.getElementById('storySection').style.display = 'block';
-        document.getElementById('questionSection').style.display = 'none';
         document.getElementById('finalLegacy').style.display = 'none';
         document.getElementById('nameInputContainer').style.display = 'block';
-        document.getElementById('nameInput').value = '';
+        document.getElementById('questionSection').style.display = 'none';
         document.getElementById('nameInput').focus();
 
         document.getElementById('progressFill').style.width = '0%';
         document.getElementById('questionCounter').textContent = 'Question 0 of 10';
-
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
