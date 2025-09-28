@@ -1,4 +1,4 @@
-class WarriorNerdQuiz {
+class FounderQuiz {
     constructor() {
         this.currentQuestion = 0;
         this.answers = [];
@@ -7,158 +7,93 @@ class WarriorNerdQuiz {
         
         this.questions = [
             {
-                question: "What is your legendary name, warrior?",
-                type: 'text',
-                storyResponse: "The chronicles shall forever remember the name {name}! A warrior destined for greatness, or at least, a really high score."
-            },
-            {
-                question: "Which sacred weapon do you wield in battle?",
+                question: "You’re building your prototype. What do you hack it together with?",
                 options: [
-                    "USB Sword of Destiny",
-                    "Mechanical Keyboard +5 of Clicking Fury",
-                    "Potion of Unlimited Mountain Dew",
-                    "The Legendary Mouse of Precision Clicking"
-                ],
-                storyResponses: [
-                    "With a satisfying *click*, {name} drew forth the USB Sword of Destiny! The blade hummed with the power of universal connectivity, capable of interfacing with any foe. Legend says it never needs to be flipped twice to plug in correctly.",
-                    "The earth trembled as {name} unleashed the Mechanical Keyboard +5 of Clicking Fury! Each keystroke echoed like thunder across the digital plains. Enemies fled in terror at the sound of Cherry MX Blue switches being activated at 120 WPM.",
-                    "{name} raised the mystical Potion of Unlimited Mountain Dew, its radioactive green glow illuminating the battlefield! With this elixir, they could code for 72 hours straight without sleep, their caffeine levels reaching legendary proportions.",
-                    "Behold! {name} wielded The Legendary Mouse of Precision Clicking, its RGB lighting pulsing with the heartbeat of a true gamer! With 16,000 DPI and the reflexes of a caffeinated cat, no pixel was safe from their cursor."
+                    { text: "A Raspberry Pi strapped to a cereal box", type: 'hacker', story: "Your first prototype, a glorious mess of wires and cardboard, was born. {name} called it 'Project CerealBox,' and it technically worked... once." },
+                    { text: "A 50-tab Google Sheet with conditional formatting sorcery", type: 'hype', story: "With the finesse of a spreadsheet wizard, {name} created a 'database' so complex it brought Google's servers to their knees. It was beautiful, terrifying, and barely functional." },
+                    { text: "Sticky notes and blind optimism", type: 'chaos', story: "The MVP was a wall of colorful sticky notes. {name} insisted it was an 'agile, physical-first user experience.' Investors were... confused." },
+                    { text: "A no-code app that breaks if you sneeze near it", type: 'cliche', story: "{name} proudly presented a sleek no-code app. The demo went perfectly, as long as no one in a 5-mile radius sneezed, which would cause a server-wide crash." }
                 ]
             },
             {
-                question: "What's your warrior-nerd battle cry?",
+                question: "First investor pitch, your style is:",
                 options: [
-                    "\"It's not a bug, it's a feature!\"",
-                    "\"Have you tried turning it off and on again?\"",
-                    "\"sudo make me a sandwich!\"",
-                    "\"That's not how the Force works!\""
-                ],
-                storyResponses: [
-                    "The battlefield fell silent as {name} roared their legendary cry: \"It's not a bug, it's a feature!\" Suddenly, all the glitches in reality became intentional design choices, and the universe's error log was cleared.",
-                    "With the wisdom of ancient IT support, {name} bellowed: \"Have you tried turning it off and on again?\" The very fabric of space-time rebooted, fixing 90% of all existing problems in a 50-mile radius.",
-                    "The ground shook as {name} commanded with root privileges: \"sudo make me a sandwich!\" The universe, recognizing their administrative authority, immediately complied by materializing the most epic sandwich ever compiled.",
-                    "Drawing upon the sacred texts of a galaxy far, far away, {name} declared: \"That's not how the Force works!\" Physics itself paused to reconsider its fundamental laws, and several quantum particles filed formal complaints."
+                    { text: "97 slides of graphs, no product", type: 'hacker', story: "{name}'s pitch deck was a masterpiece of data visualization. 97 slides later, the investors had no idea what the product was, but they were deeply impressed by a pie chart." },
+                    { text: "“We’re basically the Uber of AI” (and hope they buy it)", type: 'hype', story: "Boldly, {name} declared the company 'the Uber of AI.' The investors nodded sagely, having heard the same pitch six times that day. They were in." },
+                    { text: "A live demo that immediately crashes", type: 'chaos', story: "The live demo was going great until it wasn't. As the app crashed spectacularly, {name} called it an 'interactive demonstration of our robust error-handling protocols.'" },
+                    { text: "Just Elon quotes and 🚀 emojis", type: 'cliche', story: "{name}'s pitch was simple: a single slide with a picture of Elon Musk and three rocket emojis. They secured $10 million." }
                 ]
             },
             {
-                question: "Which guild do you pledge your allegiance to?",
+                question: "You land your first engineer. Who is it?",
                 options: [
-                    "The Order of Stack Overflow",
-                    "The Brotherhood of Vim Users",
-                    "The Sacred Assembly of Tab vs. Spaces",
-                    "The Cult of the Rubber Duck"
-                ],
-                storyResponses: [
-                    "{name} knelt before the altar of The Order of Stack Overflow, where the ancient masters of copy-paste wisdom dwelled. They were granted the sacred ability to find solutions to problems they didn't even know they had.",
-                    "The Brotherhood of Vim Users welcomed {name} with a cryptic nod. They were immediately transported to a mystical realm where exiting required ancient knowledge, and every text editor seemed primitive by comparison.",
-                    "{name} entered the eternal debate hall of The Sacred Assembly of Tab vs. Spaces. The war had raged for millennia, and they would now carry the burden of this holy conflict in their very soul (and their IDE settings).",
-                    "The Cult of the Rubber Duck embraced {name} with squeaky enthusiasm! They learned the ancient art of explaining problems to an inanimate object until the solution became obvious, achieving enlightenment through bath toy meditation."
+                    { text: "Your mate who once installed Minecraft mods", type: 'hacker', story: "The first hire was a success! {name}'s mate, a seasoned veteran of Minecraft modding, managed to rewrite the entire backend in a language he invented himself." },
+                    { text: "A “10x dev” who refuses to use Git", type: 'hype', story: "You hired a self-proclaimed '10x dev.' They work 20 hours a day, refuse to use Git, and communicate only in binary. Your codebase is now a work of incomprehensible genius." },
+                    { text: "The cheapest option on Fiverr", type: 'chaos', story: "To save money, {name} hired the cheapest engineer on Fiverr. Communication was tough, but the code was... creative. And mostly functional. Sometimes." },
+                    { text: "A cousin who thinks Python is just a snake", type: 'cliche', story: "Family first. {name} hired their cousin, who, despite a steep learning curve, now proudly lists 'Reptile.js' on their LinkedIn profile." }
                 ]
             },
             {
-                question: "What's your preferred method of transportation across the digital realm?",
+                question: "Office setup vibe:",
                 options: [
-                    "Riding a Segway powered by cryptocurrency",
-                    "Teleporting through SSH tunnels",
-                    "Flying on a drone made of old graphics cards",
-                    "Surfing the information superhighway on a literal surfboard"
-                ],
-                storyResponses: [
-                    "{name} mounted their trusty Segway, its blockchain-powered engine humming with the sound of mining operations. Each mile traveled generated 0.0001 DogeCoin, making them both a warrior and an inadvertent crypto-millionaire.",
-                    "With a swift 'ssh user@adventure.quest', {name} vanished into the digital ether! They materialized instantly at their destination, though they had to remember to close the connection properly or risk leaving a zombie process behind.",
-                    "The majestic drone, crafted from the sacred remains of GTX 1080s, lifted {name} into the sky! Its RGB lighting created rainbow trails across the heavens, and its cooling fans generated enough lift to carry them to the cloud (computing).",
-                    "{name} grabbed their literal surfboard and dove into the information superhighway! They rode the data streams like a digital Poseidon, occasionally wiping out on a 404 wave but always getting back up to surf another packet."
+                    { text: "IKEA desks held up by energy drink cans", type: 'hacker', story: "The office had a certain... structural integrity, with desks propped up by towers of empty energy drink cans. {name} called it 'caffeine-based architecture.'" },
+                    { text: "Beanbags + one lonely standing desk", type: 'hype', story: "The office was 90% beanbags. It looked great on the website, but productivity plummeted as everyone kept falling asleep. {name} didn't mind." },
+                    { text: "Two monitors each, no WiFi", type: 'chaos', story: "Every engineer had two monitors, but the office WiFi was a myth. {name} insisted it built character and encouraged 'offline-first development.'" },
+                    { text: "A garage with suspicious extension cords", type: 'cliche', story: "{name} embraced the classic startup garage. It was cold, damp, and powered by a daisy-chain of extension cords that was definitely a fire hazard." }
                 ]
             },
             {
-                question: "Which ancient programming language do you speak fluently?",
+                question: "Your first paying customer, how do you celebrate?",
                 options: [
-                    "The Forbidden Tongue of COBOL",
-                    "The Mystical Incantations of Assembly",
-                    "The Arcane Dialects of JavaScript (all 47 frameworks)",
-                    "The Sacred Hieroglyphs of Regular Expressions"
-                ],
-                storyResponses: [
-                    "{name} spoke in The Forbidden Tongue of COBOL, and suddenly all the mainframes in a 100-mile radius awakened from their slumber! Banking systems everywhere trembled as they realized someone still understood their ancient ways.",
-                    "Uttering the Mystical Incantations of Assembly, {name} began speaking directly to the CPU's soul! Every instruction was a prayer, every register a sacred vessel, and every bit flip a divine revelation.",
-                    "{name} demonstrated mastery of the Arcane Dialects of JavaScript, seamlessly switching between React, Angular, Vue, and 44 other frameworks in a single sentence! Even the JavaScript engine wept at such beautiful chaos.",
-                    "The Sacred Hieroglyphs of Regular Expressions flowed from {name}'s lips like poetry! With a single '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/', they could validate email addresses and summon ancient demons simultaneously."
+                    { text: "Ring the office gong you bought just for this moment", type: 'hacker', story: "The mighty office gong was struck! The sound echoed through the halls, celebrating the arrival of actual, real revenue. {name} felt like a true warrior nerd." },
+                    { text: "Send a press release to TechCrunch (they don’t reply)", type: 'hype', story: "A press release was dispatched to every major tech blog. The silence was deafening, but {name} was already updating their LinkedIn to 'As Seen In... (Probably).'" },
+                    { text: "Pop open a bottle of supermarket prosecco in paper cups", type: 'chaos', story: "{name} celebrated with warm prosecco in paper cups. It was messy, undignified, and absolutely perfect." },
+                    { text: "Immediately ask them for a testimonial and make it your homepage", type: 'cliche', story: "Before the customer could even log in, {name} had already asked for a glowing testimonial. It now sits proudly on the homepage, in quotes." }
                 ]
             },
             {
-                question: "What's your greatest fear in the digital realm?",
+                question: "Growth hack of choice:",
                 options: [
-                    "Merge conflicts in the repository of life",
-                    "Running out of coffee during a production deployment",
-                    "Accidentally deleting the master branch of reality",
-                    "Getting trapped in an infinite loop of meetings"
-                ],
-                storyResponses: [
-                    "{name} shuddered at the thought of merge conflicts in the repository of life! They had seen too many warriors fall to the dreaded 'CONFLICT (content): Merge conflict in destiny.txt' error message.",
-                    "The horror! {name} broke into a cold sweat imagining a production deployment without caffeine. In their nightmares, they saw themselves trying to fix critical bugs while running on nothing but determination and stale donuts.",
-                    "{name} whispered fearfully about the time they almost typed 'git branch -D master' on the universe's main repository. The backup systems were still recovering from that near-catastrophe.",
-                    "The ultimate nightmare: {name} trapped in an infinite loop of meetings about meetings! Each iteration spawned two more meetings, creating a recursive hell of status updates and action items that never resolved."
+                    { text: "Automating everything with duct-tape scripts", type: 'hacker', story: "{name} built a labyrinth of Python scripts held together with digital duct tape. It was fragile, but it automated everything from marketing emails to making coffee." },
+                    { text: "Pretending every client is “Fortune 500”", type: 'hype', story: "'Our clients include several Fortune 500 companies,' {name} announced, conveniently omitting that they just bought a coffee from Starbucks." },
+                    { text: "Running TikTok ads with no product yet", type: 'chaos', story: "Why wait for a product? {name} launched a viral TikTok campaign for a product that didn't exist, creating massive hype and a very confused audience." },
+                    { text: "Hiring an “intern army” paid in pizza", type: 'cliche', story: "An army of unpaid interns, fueled by pizza and promises of 'exposure,' became the backbone of {name}'s growth strategy. It was ethically questionable but highly effective." }
                 ]
             },
             {
-                question: "Which legendary artifact do you seek on your quest?",
+                question: "Series A pitch highlight:",
                 options: [
-                    "The Golden Ethernet Cable of Infinite Bandwidth",
-                    "The Crystal Monitor of 8K Clarity",
-                    "The Mythical SSD of Instant Boot Times",
-                    "The Holy Grail of Bug-Free Code"
-                ],
-                storyResponses: [
-                    "{name} set their sights on The Golden Ethernet Cable of Infinite Bandwidth! Legend spoke of download speeds so fast that files arrived before you even clicked the link, and lag became just a distant memory.",
-                    "The quest for The Crystal Monitor of 8K Clarity began! {name} dreamed of pixels so crisp they could see individual electrons, and colors so vivid they made reality look like a low-res JPEG.",
-                    "{name} sought The Mythical SSD of Instant Boot Times, rumored to make computers start faster than the speed of thought! Boot sequences would complete before the power button finished being pressed.",
-                    "The ultimate prize: The Holy Grail of Bug-Free Code! {name} embarked on this impossible quest, knowing that many had tried and all had failed, but perhaps they would be the chosen one to write perfect software."
+                    { text: "A blockchain diagram no one understands", type: 'hacker', story: "{name} presented a slide with a blockchain diagram so complex, it silenced the room. No one understood it, but everyone was too afraid to ask. Funding secured." },
+                    { text: "Buzzwords: “synergy,” “scale,” “machine learning”", type: 'hype', story: "The pitch was a symphony of buzzwords. 'Synergy,' 'disruption,' 'machine learning,' 'paradigm shift.' The VCs ate it up. {name} walked out with a blank check." },
+                    { text: "Actual revenue numbers (rare)", type: 'chaos', story: "In a shocking twist, {name} presented a slide with actual, positive revenue. The investors were so stunned, they forgot to ask any hard questions." },
+                    { text: "A meme that gets more laughs than your product", type: 'cliche', story: "The product demo was forgettable, but a well-timed meme about startup life got a huge laugh. {name} pivoted to a meme-based consulting firm the next day." }
                 ]
             },
             {
-                question: "How do you prefer to vanquish your enemies?",
+                question: "Competitor copycats you, your move?",
                 options: [
-                    "Death by a thousand paper cuts (code reviews)",
-                    "Overwhelming them with superior documentation",
-                    "Challenging them to a dance-off in Just Dance",
-                    "Defeating them with the power of friendship and good UX design"
-                ],
-                storyResponses: [
-                    "{name} mastered the art of death by a thousand paper cuts through meticulous code reviews! Their enemies fell not to sword or spell, but to comments like 'Consider using const instead of let here' and 'This function could be more readable.'",
-                    "Behold the power of superior documentation! {name} buried their foes under avalanches of well-written README files, comprehensive API docs, and detailed inline comments. No enemy could survive such organized information.",
-                    "The battlefield became a dance floor as {name} challenged all comers to Just Dance! Their enemies, unprepared for this unconventional combat style, were defeated by sick moves to 'Rasputin' and 'Gangnam Style.'",
-                    "{name} wielded the most powerful force in the universe: the power of friendship and good UX design! Enemies were converted to allies through intuitive interfaces and accessible design patterns. World peace through proper button placement!"
+                    { text: "Add “Pro” to your name, done", type: 'hacker', story: "The copycat was a problem, but {name} had a simple solution: add 'Pro' to the product name. Instantly, they were the premium option. Genius." },
+                    { text: "Write a 12-tweet rant thread", type: 'hype', story: "{name} took to Twitter, unleashing a 12-part thread on the injustice of it all. It went viral, and the copycat was shamed into oblivion. A modern victory." },
+                    { text: "Pivot to something random like “AI for dogs”", type: 'chaos', story: "'They can't copy us if we don't know what we're doing,' {name} declared, pivoting the entire company to 'AI for dogs.' The competitor was thoroughly confused." },
+                    { text: "Offer to acquire them (with money you don’t have)", type: 'cliche', story: "In a bold power move, {name} made a public offer to acquire the competitor. The fact that they had no money was a minor detail." }
                 ]
             },
             {
-                question: "What will be your legacy in the annals of geek history?",
+                question: "A major client wants changes, how do you handle it?",
                 options: [
-                    "The one who finally fixed Internet Explorer",
-                    "The warrior who made printers work reliably",
-                    "The legend who solved the P vs NP problem with a meme",
-                    "The hero who convinced everyone to read the documentation"
-                ],
-                storyResponses: [
-                    "The prophecies spoke of {name}, the chosen one who would finally fix Internet Explorer! Web developers across the land wept tears of joy as CSS finally rendered correctly and JavaScript stopped throwing mysterious errors.",
-                    "Against all odds, {name} achieved the impossible: making printers work reliably! The ancient curse of 'PC LOAD LETTER' was broken, and paper jams became a thing of the past. Offices everywhere celebrated this miracle.",
-                    "In a moment of pure genius, {name} solved the P vs NP problem using nothing but a perfectly crafted meme! The mathematical community was initially skeptical until they realized the meme was actually a valid proof disguised as humor.",
-                    "The greatest achievement of all: {name} convinced everyone to actually read the documentation! This legendary feat ended 90% of all support tickets and ushered in a golden age of informed users and fewer 'RTFM' responses."
+                    { text: "Promise everything, panic later", type: 'hacker', story: "'Of course we can do that!' {name} promised, with no idea how. The panic would come later. For now, the client was happy." },
+                    { text: "Pretend the feature is already “in beta”", type: 'hype', story: "'That feature is actually in our exclusive beta,' {name} said smoothly, giving the client a sense of VIP treatment for a feature that didn't exist yet." },
+                    { text: "Rename an existing feature and call it “custom”", type: 'chaos', story: "{name} took an old, barely-used feature, gave it a new name, and sold it as a 'custom enterprise solution.' The client was thrilled." },
+                    { text: "Outsource it to your cousin again", type: 'cliche', story: "'I've got just the person for the job,' {name} said, already dialing their cousin. The legacy of Reptile.js would continue." }
                 ]
             },
             {
-                question: "Your quest is over. What is your final, triumphant action?",
+                question: "The final boss, your exit. What happens?",
                 options: [
-                    "Deploy to production on a Friday afternoon",
-                    "Announce 'It works on my machine' and ascend to a higher plane",
-                    "Write a 10,000-word blog post about the 'journey'",
-                    "Immediately start a New Game+"
-                ],
-                storyResponses: [
-                    "With nerves of steel, {name} deployed to production on a Friday at 4:59 PM. The servers didn't crash. The internet didn't break. It was a display of power so absolute, it was terrifying.",
-                    "Having solved all of geekdom's problems, {name} simply declared, 'It works on my machine,' and vanished into the cloud, becoming a legend whispered about in pull requests for eternity.",
-                    "The quest was complete, but the content creation had just begun. {name} wrote a 10,000-word, multi-part blog series on Medium about their 'journey,' complete with affiliate links to their favorite mechanical keyboard.",
-                    "The moment the credits rolled, {name} hit the 'New Game+' button. The universe reset, but this time with more challenging bugs and even more ridiculous loot. The quest for eternal geekdom never truly ends."
+                    { text: "IPO, parents still don’t understand what you do", type: 'hacker', story: "" },
+                    { text: "Acquired by Google, shut down in 6 months", type: 'hype', story: "" },
+                    { text: "Private equity, endless Excel sheets forever", type: 'chaos', story: "" },
+                    { text: "Burnout, you start a podcast instead", type: 'cliche', story: "" }
                 ]
             }
         ];
@@ -167,8 +102,15 @@ class WarriorNerdQuiz {
     }
     
     initializeQuiz() {
-        this.displayQuestion();
+        this.currentQuestion = -1;
         this.setupEventListeners();
+        document.getElementById('storySection').style.display = 'block';
+        document.getElementById('questionSection').style.display = 'none';
+        document.getElementById('finalLegacy').style.display = 'none';
+        document.getElementById('nameInputContainer').style.display = 'block';
+        document.getElementById('nameInput').focus();
+        document.getElementById('questionCounter').textContent = 'Question 0 of 10';
+        document.getElementById('progressFill').style.width = '0%';
     }
     
     setupEventListeners() {
@@ -184,65 +126,35 @@ class WarriorNerdQuiz {
     
     displayQuestion() {
         const question = this.questions[this.currentQuestion];
-        const questionText = document.getElementById('questionText');
+        document.getElementById('questionText').textContent = question.question;
+
         const optionsContainer = document.getElementById('optionsContainer');
-        const nameInputContainer = document.getElementById('nameInputContainer');
-        const questionCounter = document.getElementById('questionCounter');
-        const progressFill = document.getElementById('progressFill');
+        optionsContainer.innerHTML = '';
+        question.options.forEach((option, index) => {
+            const button = document.createElement('button');
+            button.className = 'option-button';
+            button.textContent = option.text;
+            button.addEventListener('click', () => this.selectOption(index, button));
+            optionsContainer.appendChild(button);
+        });
 
-        // Update progress
-        const progress = (this.currentQuestion / (this.questions.length -1)) * 100;
-        progressFill.style.width = `${this.currentQuestion === 0 ? 0 : progress}%`;
-        questionCounter.textContent = `Question ${this.currentQuestion} of ${this.questions.length - 1}`;
+        document.getElementById('nextButton').style.display = 'none';
 
-        // Display question
-        questionText.textContent = question.question;
-
-        if (question.type === 'text') {
-            nameInputContainer.style.display = 'flex';
-            optionsContainer.style.display = 'none';
-            document.getElementById('nextButton').style.display = 'none';
-            document.getElementById('nameInput').focus();
-        } else {
-            nameInputContainer.style.display = 'none';
-            optionsContainer.style.display = 'grid';
-            optionsContainer.innerHTML = '';
-            question.options.forEach((option, index) => {
-                const button = document.createElement('button');
-                button.className = 'option-button';
-                button.textContent = option;
-                button.addEventListener('click', () => this.selectOption(index, button));
-                optionsContainer.appendChild(button);
-            });
-            document.getElementById('nextButton').style.display = 'none';
-        }
+        const progress = ((this.currentQuestion + 1) / this.questions.length) * 100;
+        document.getElementById('progressFill').style.width = `${progress}%`;
+        document.getElementById('questionCounter').textContent = `Question ${this.currentQuestion + 1} of ${this.questions.length}`;
     }
     
     selectOption(optionIndex, buttonElement) {
-        // Remove previous selections
         document.querySelectorAll('.option-button').forEach(btn => {
             btn.classList.remove('selected');
         });
-        
-        // Mark current selection
         buttonElement.classList.add('selected');
-        
-        // Store answer
-        this.answers[this.currentQuestion] = {
-            questionIndex: this.currentQuestion,
-            optionIndex: optionIndex,
-            optionText: this.questions[this.currentQuestion].options[optionIndex]
-        };
-        
-        // Store player name from first question
-        if (this.currentQuestion === 0) {
-            this.playerName = this.extractName(this.questions[0].options[optionIndex]);
-        }
-        
-        // Update story
-        this.updateStory();
-        
-        // Show next button
+
+        const question = this.questions[this.currentQuestion];
+        const answer = question.options[optionIndex];
+        this.answers[this.currentQuestion] = answer;
+
         document.getElementById('nextButton').style.display = 'block';
     }
     
@@ -252,42 +164,26 @@ class WarriorNerdQuiz {
         const name = nameInput.value.trim();
         if (name) {
             this.playerName = name;
-            const storyResponse = this.questions[0].storyResponse.replace(/{name}/g, this.playerName);
-            this.story.push(storyResponse);
-            this.answers[0] = { questionIndex: 0, optionText: name };
+            this.story.push(`Welcome, founder ${name}. You're about to embark on the chaotic journey of building a startup. Each choice you make will shape your company's fate. Will you IPO, get acquired, or flame out and start a podcast? Let's find out.`);
             this.updateStoryDisplay();
-            this.nextQuestion();
+            this.currentQuestion = 0;
+            document.getElementById('nameInputContainer').style.display = 'none';
+            document.getElementById('questionSection').style.display = 'block';
+            this.displayQuestion();
         } else {
-            alert('A warrior must have a name!');
+            alert('A founder must have a name!');
         }
     }
 
-    updateStory() {
-        const currentAnswer = this.answers[this.currentQuestion];
-        const storyResponse = this.questions[this.currentQuestion].storyResponses[currentAnswer.optionIndex];
-        
-        // Replace {name} placeholder with player name
-        const personalizedStory = storyResponse.replace(/{name}/g, this.playerName);
-        
-        // Add to story array
-        this.story.push(personalizedStory);
-        
-        this.updateStoryDisplay();
-    }
-
-    updateStoryDisplay() {
-        // Update story display
-        const storyText = document.getElementById('storyText');
-        const fullStory = this.story.join('\n\n');
-        storyText.textContent = fullStory;
-        
-        // Scroll to show new content
-        document.getElementById('storySection').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
     
     nextQuestion() {
+        const answer = this.answers[this.currentQuestion];
+        if (answer && answer.story) {
+            this.story.push(answer.story.replace(/{name}/g, this.playerName));
+            this.updateStoryDisplay();
+        }
+
         this.currentQuestion++;
-        
         if (this.currentQuestion < this.questions.length) {
             this.displayQuestion();
         } else {
@@ -295,6 +191,12 @@ class WarriorNerdQuiz {
         }
     }
     
+    updateStoryDisplay() {
+        const storyText = document.getElementById('storyText');
+        storyText.innerHTML = this.story.map(s => `<p>${s}</p>`).join('');
+        document.getElementById('storySection').scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+
     showFinalLegacy() {
         // Hide quiz sections
         document.getElementById('questionSection').style.display = 'none';
@@ -312,69 +214,74 @@ class WarriorNerdQuiz {
     }
     
     generateFinalLegacy() {
-        const weapon = this.answers[1]?.optionText || "mysterious weapon";
-        const battleCry = this.answers[2]?.optionText || "ancient battle cry";
-        const guild = this.answers[3]?.optionText || "secret guild";
-        const transport = this.answers[4]?.optionText || "magical transport";
-        const language = this.answers[5]?.optionText || "ancient language";
-        const fear = this.answers[6]?.optionText || "deepest fear";
-        const artifact = this.answers[7]?.optionText || "legendary artifact";
-        const combat = this.answers[8]?.optionText || "unique combat style";
-        const legacy = this.answers[9]?.optionText || "eternal legacy";
-        const finalAction = this.answers[10]?.optionText || "final, triumphant action";
-        
-        return `
-            <h4>🏰 The Epic Saga of ${this.playerName} 🏰</h4>
-            <p>And so it was that ${this.playerName}, wielding the mighty ${weapon}, became a legend that would echo through the servers of eternity!</p>
-            
-            <p>Their battle cry of "${battleCry}" became the stuff of legend, whispered in hushed tones in computer labs and coding bootcamps across the digital realm. Members of ${guild} still gather annually to celebrate their heroic deeds.</p>
-            
-            <p>Traveling by ${transport}, ${this.playerName} journeyed to the farthest reaches of cyberspace, speaking fluently in ${language} to communicate with the ancient AIs that guarded the secrets of the universe.</p>
-            
-            <p>Though they feared ${fear}, our hero pressed on, driven by their quest to find ${artifact}. Their unique approach to combat - ${combat} - revolutionized warfare in the digital age and inspired countless memes.</p>
-            
-            <p>But perhaps most importantly, ${this.playerName} will forever be remembered as ${legacy}. This achievement transcended the boundaries between the physical and digital worlds, creating a legacy that would inspire warrior-nerds for generations to come.</p>
+        const counts = this.answers.reduce((acc, answer) => {
+            if (answer && answer.type) {
+                acc[answer.type] = (acc[answer.type] || 0) + 1;
+            }
+            return acc;
+        }, {});
 
-            <p>In their final, triumphant moment, our hero chose to ${finalAction}. It was a fitting end to a saga so epic, it probably caused a buffer overflow in the scroll of destiny.</p>
-            
-            <h4>⚡ The Final Chapter ⚡</h4>
-            <p>As the sun set over Silicon Valley, ${this.playerName} stood atop the highest server rack, their ${weapon} gleaming in the light of a thousand LED status indicators. They had achieved what many thought impossible - they had become the ultimate Warrior Nerd.</p>
-            
-            <p>The Council of Eternal Geekdom bestowed upon them the highest honor: a lifetime supply of energy drinks, a mechanical keyboard that never wore out, and a monitor so large it required its own zip code.</p>
-            
-            <p>And though their quest was complete, ${this.playerName} knew that somewhere out there, another warrior-nerd was just beginning their journey. The cycle would continue, as it always had, in the eternal quest for geekdom.</p>
-            
-            <p><strong>THE END... OR IS IT JUST THE BEGINNING OF A NEW ADVENTURE?</strong></p>
-            
+        let dominantType = 'cliche';
+        let maxCount = 0;
+        for (const type in counts) {
+            if (counts[type] > maxCount) {
+                maxCount = counts[type];
+                dominantType = type;
+            }
+        }
+
+        const outcomes = {
+            hacker: {
+                title: "IPO: You’re a Billionaire!",
+                story: `Against all odds, ${this.playerName}’s scrappy prototype, held together by duct tape and sheer force of will, actually worked. The market loved it. You’ve IPO’d. You’re rich. Your parents still don’t understand what you do, but they’re very proud. You now spend your days optimizing your smart-fridge’s kernel.`
+            },
+            hype: {
+                title: "Acquired by Google (and Shut Down)",
+                story: `The buzzwords worked! Google acquired ${this.playerName}’s startup for an eye-watering sum. You were a tech celebrity for exactly six months, before your product was unceremoniously shut down. You’re now a ‘Distinguished Engineer’ at Google, working on a project so secret, not even you know what it is.`
+            },
+            chaos: {
+                title: "Flamed Out at Series A",
+                story: `It was a wild ride for ${this.playerName}. The live demos kept crashing, the office WiFi never worked, and your lead engineer was a snake... or thought Python was one. The VCs called it ‘unscalable chaos.’ You’ve flamed out spectacularly, but at least you have a great story to tell.`
+            },
+            cliche: {
+                title: "Burnout: You Start a Podcast",
+                story: `After years of Elon quotes, beanbags, and hiring your cousin, ${this.playerName}’s startup ran out of steam. The ‘Uber for AI’ never really took off. You’ve officially burned out. You now host a moderately successful podcast about startup burnout, and your cousin is your first subscriber.`
+            }
+        };
+
+        const result = outcomes[dominantType];
+
+        return `
+            <h4>${result.title}</h4>
+            <p>${result.story}</p>
             <div style="text-align: center; margin-top: 20px; padding: 15px; background: rgba(0,255,65,0.1); border-radius: 10px;">
-                <p style="color: #00ff41; font-weight: bold;">🎮 ACHIEVEMENT UNLOCKED: ETERNAL GEEKDOM 🎮</p>
-                <p style="color: #ff6b35;">You have successfully completed the Quest for Eternal Geekdom!</p>
-                <p style="font-size: 0.9rem; color: #e0e0e0;">Your warrior-nerd legend will be remembered in the annals of digital history.</p>
+                <p style="color: #00ff41; font-weight: bold;">FOUNDER TYPE: ${dominantType.toUpperCase()}</p>
             </div>
         `;
     }
     
     restartQuiz() {
-        // Reset all variables
-        this.currentQuestion = 0;
+        this.currentQuestion = -1;
         this.answers = [];
         this.playerName = '';
         this.story = [];
-        
-        // Reset UI
-        document.getElementById('questionSection').style.display = 'block';
+
+        document.getElementById('storyText').innerHTML = '';
+        document.getElementById('storySection').style.display = 'block';
+        document.getElementById('questionSection').style.display = 'none';
         document.getElementById('finalLegacy').style.display = 'none';
-        document.getElementById('storyText').textContent = "In the mystical realm of Geektopia, where WiFi signals flow like ancient magic and code compiles like sacred incantations, a new warrior-nerd is about to embark on the most epic quest ever attempted. The Council of Eternal Geekdom has summoned you to prove your worthiness...";
-        
-        // Start over
-        this.displayQuestion();
-        
-        // Scroll to top
+        document.getElementById('nameInputContainer').style.display = 'block';
+        document.getElementById('nameInput').value = '';
+        document.getElementById('nameInput').focus();
+
+        document.getElementById('progressFill').style.width = '0%';
+        document.getElementById('questionCounter').textContent = 'Question 0 of 10';
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
 // Initialize the quiz when the page loads
 document.addEventListener('DOMContentLoaded', () => {
-    new WarriorNerdQuiz();
+    new FounderQuiz();
 });

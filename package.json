@@ -4,8 +4,8 @@
   "description": "An epic interactive quiz: Warrior Nerds - The Quest for Eternal Geekdom",
   "main": "index.html",
   "scripts": {
-    "dev": "python3 -m http.server 8000",
-    "start": "python3 -m http.server 8000",
+    "dev": "python3 -m http.server 8080 --directory public",
+    "start": "python3 -m http.server 8080 --directory public",
     "build": "echo 'No build step required for static site'"
   },
   "keywords": [
